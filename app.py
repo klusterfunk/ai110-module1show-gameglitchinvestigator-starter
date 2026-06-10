@@ -154,13 +154,23 @@ if submit:
         st.error(err)
     else:
         st.session_state.history.append(guess_int)
-
+# FIXME: Logic breaks here
         if st.session_state.attempts % 2 == 0:
             secret = str(st.session_state.secret)
         else:
             secret = st.session_state.secret
 
-        outcome, message = check_guess(guess_int, secret)
+ if st.session_state.status != "playing":
+    if st.session_state.status == "won":
+        st.success("You already won. Start a new game to play again.")
+    else:
+        st.error("Game over. Start a new game to try again.")
+    st.stop()  # ← Execution stops here   # FIXME: Logic breaks here    
+        if new_game:
+            st.session_state.attempts = 0
+            st.session_state.secret = random.randint(1, 100)
+            st.success("New game started.")
+            st.rerun()outcome, message = check_guess(guess_int, secret) # FIXME: Logic breaks here 
 
         if show_hint:
             st.warning(message)

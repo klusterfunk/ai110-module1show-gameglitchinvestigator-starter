@@ -8,15 +8,17 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 - List at least two concrete bugs you noticed at the start  
   (for example: "the hints were backwards").
 
+  The first time I ran the game  it looks like a basic window where I enter guesses from 1-100 and it tells me if I got the secret number right. I noticed that when I enter the number "1" it says " Go LOWER!" and I expected it to say "go higher" since it is  1 and 100. I also noticed that when I entered a number that was higher than the secret number it would tell me to go higher instead of lower. Additionally the buttton to create a "new game" doesn't work.
+
 **Bug Reproduction Log**
 
 Document at least 3 bugs you found. Add rows as needed.
 
 | Input | Expected Behavior | Actual Behavior | Console Output / Error |
 |-------|-------------------|-----------------|------------------------|
-| | | | |
-| | | | |
-| | | | |
+| 1     |Go higher          |Go lower         | Go Lower               |
+|20     |Go lower           | Go higher       | Go Higher              |
+|15     |Go higher         | Go Lower        | Go Lower                |
 
 ---
 
